@@ -1,4 +1,3 @@
-// import logo from '../../assets/video.png'
 
 class HeaderComponent extends HTMLElement{
     constructor(){
@@ -6,27 +5,37 @@ class HeaderComponent extends HTMLElement{
 
         this.attachShadow( { mode : "open"} )
     }
+    static get observedAttributes(){
+        return ["src", "title", "uimg", "name"]
+    }
+    attributeChangedCallback(attr,oldVal,newVal){
+        if(oldVal !== newVal){
+            this[attr] = newVal
+        }
+    }
     getTemplate(){
         const template = document.createElement('template')
         template.innerHTML = `
             <header>
                 <div class="logo-container">
                     <figure class="logo-header">
-                        <img src="./assets/video.png" alt="Logo Header KitsuVideo">
+                        <img src=${this.src} alt="Logo Header KitsuVideo">
                     </figure>
-                    <h2>KitsuVideo</h2>
+                    <h2>${this.title}</h2>
                 </div>
                 <div class="user-header">
                     <div class="user-img-container">
-                        <img class="user-img" src="./assets/bias.jpg" alt="">
+                        <img class="user-img" src=${this.uimg} alt="">
                     </div>
-                    <p class="user-name">NilsonKr</p>
+                    <p class="user-name">${this.name}</p>
                     <span class="user-optlogo"></span>
-                    <ul class="user-opt">
-                        <li>Item1</li>
-                        <li>Item1</li>
-                        <li>Item1</li>
-                    </ul>
+                    <div class="user-opt">
+                        <ul>
+                            <li>Item1</li>
+                            <li>Item1</li>
+                            <li>Item1</li>
+                        </ul>
+                    </div>
                 </div>
             </header>
             ${this.styles()}
@@ -51,8 +60,9 @@ class HeaderComponent extends HTMLElement{
             }
             header{
                 display: flex;
-                justify-content: space-between;
+                justify-content:center;
                 align-items: center;
+                flex-wrap: wrap;
                 color: white;
                 padding: 10px 20px;
             }
@@ -65,10 +75,12 @@ class HeaderComponent extends HTMLElement{
                 vertical-align: top;
             }
             .logo-container h2{
-                font-size: 2.5rem;
+                font-size: 2.4rem;
                 font-family: var(--logo-font);
             }
             .user-header{
+                position: relative;
+                height: 100%;
                 display: flex;  
                 justify-content: space-around;
                 align-items: center;
@@ -99,7 +111,33 @@ class HeaderComponent extends HTMLElement{
                 background: url('./assets/down-arrow.svg') center / cover no-repeat;
             }
             .user-opt{
+                position: absolute;
                 display: none;
+                width: 100%;
+                bottom: -240%;
+                right: 0;
+                padding: 5px;
+                text-align: right;
+                font-size: 2rem;
+                font-weight: bold;
+                border-radius: 15px;
+                background-color: var(--background-color);
+            }
+            .user-opt ul{
+                list-style: none;
+            }
+            .user-opt li {
+                margin: 5px;
+                text-decoration: underline;
+            }
+            .user-header:hover .user-opt{
+                display: block;
+
+            }
+            @media screen and (min-width: 768px){
+                header{
+                    justify-content: space-between;
+                }
             }
         </style>
         `
@@ -112,4 +150,6 @@ class HeaderComponent extends HTMLElement{
     }
 }
 
-customElements.define('header-component', HeaderComponent)
+ if(!window.customElements.get('header-component')){
+    customElements.define('header-component', HeaderComponent)
+}

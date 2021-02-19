@@ -3,8 +3,29 @@
     margin: 0;
     padding: 0;
 }
+:root{
+    --main-color: mediumslateblue; 
+    --second-color: rgb(70, 0, 116);
+}
+main{
+}
 
 html{
+    position: relative;
     font-size: 62.5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.burguer-menu{
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    background-color: var(--second-color);
+    width: fit-content;
+    border-radius: 50%;
+    margin: 10px;
+}
+.burguer-menu img{
+    width: 20px;
+    vertical-align: top;
 }

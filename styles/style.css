@@ -5,12 +5,13 @@
 }
 :root{
     --main-color: mediumslateblue; 
-    --second-color: rgb(70, 0, 116);
+    --second-color: rgba(70, 0, 116, 0.808);
 }
 main{
 }
 
 html{
+    height: 100vh;
     position: relative;
     font-size: 62.5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -24,8 +25,53 @@ html{
     width: fit-content;
     border-radius: 50%;
     margin: 10px;
+    z-index: 1;
+    transition: .5s;
+}
+.active-burguer{
+    position: absolute;
 }
 .burguer-menu img{
     width: 20px;
     vertical-align: top;
+}
+.menu{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    width: 65%;
+    background-color: var(--second-color);
+    transition: .5s;
+}
+.menuActive{
+    left: 0;
+}
+.menu-item{
+    list-style: none;
+    margin: 20px 0;
+}
+.menu-item-logo{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.menu-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+    font-weight: bold
+}
+.home{
+    background: url('../assets/home.png') center / cover no-repeat;
+}
+.trending{
+    background: url('../assets/fire.png') center / cover no-repeat;
+}
+.likey{
+    background: url('../assets/heart.png') center / cover no-repeat;
 }

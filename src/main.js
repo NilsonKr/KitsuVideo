@@ -1,4 +1,5 @@
-import './components/header.js'
+import './components/header.js';
+import './components/card.js';
 
 
 const burguerButton = document.querySelector('#burguer')

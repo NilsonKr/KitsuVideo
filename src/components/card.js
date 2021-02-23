@@ -4,17 +4,25 @@ class Card extends HTMLElement{
 
         this.attachShadow( { mode: "open" } )
     }
+    static get observedAttributes(){
+        return ['img', 'title', 'date', 'episodes']
+    }
+    attributeChangedCallback(attr,oldVal,newVal){
+        if(oldVal !== newVal){
+            this[attr] = newVal
+        }
+    }
     getTemplate(){
         const template = document.createElement('template')
         template.innerHTML = ` 
         <div class="card-container">
-            <img src="https://media.kitsu.io/anime/poster_images/41370/small.jpg?1597699092" alt="Landing Image">
+            <img src=${this.img} alt="${this.title} image">
             <div class="card-details">
                 <img class="playBtn" src="./assets/playBtn.png" alt="Play Button">
                 <div class="card-info">
-                    <h2>Title</h2>
-                    <p class="date">date_placeHolder</p>
-                    <em class="episodes">Episodes : 26</em>
+                    <h2>${this.title}</h2>
+                    <p class="date">${this.date}</p>
+                    <em class="episodes">Episodes : ${this.episodes}</em>
                 </div>
             </div>
         </div>
@@ -68,7 +76,7 @@ class Card extends HTMLElement{
                 }
                 .card-container:hover .card-details{
                     bottom: 0;
-                    background-color: rgba(0, 0, 0, 0.185);
+                    background-color: rgba(0, 0, 0, 0.45);
                 }
                 .playBtn{
                     width: 100px;

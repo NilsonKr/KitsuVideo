@@ -18,7 +18,7 @@ html{
 
 .burguer-menu{
     position: sticky;
-    top: 0;
+    top: 10px;
     padding: 10px;
     background-color: var(--second-color);
     width: fit-content;
@@ -28,14 +28,14 @@ html{
     transition: .5s;
 }
 .active-burguer{
-    position: absolute;
+    position: fixed;
 }
 .burguer-menu img{
     width: 20px;
     vertical-align: top;
 }
 .menu{
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;

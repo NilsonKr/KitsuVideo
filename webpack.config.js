@@ -12,7 +12,7 @@ const plugins =[
         filename: 'index.html'
     }),
     new CopyWebpackPlugin({
-        patterns: [ { from: './assets', to: './assets'}]
+        patterns: [ { from: './assets', to: './assets'},{ from: './styles', to: './styles'}],
     })
 ]
 

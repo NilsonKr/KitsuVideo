@@ -9,6 +9,8 @@
     <!-- WebFonts -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/desktop.css" media="screen and (min-width: 1024px)">
+    <!-- responsive -->
     <title>Project Video</title>
 </head>
 <body>
@@ -17,20 +19,23 @@
         <div class="burguer-menu burguer-click" id="burguer">
             <img class="burguer-click" src="./assets/burguerMenu.png" alt="Burguer Menu">
         </div>
-        <section class="menu" id="Menu">
-            <ul class="menu-container">
-                <li class="menu-item"><span class="menu-item-logo home"></span><a id="home"  href="">Home</a></li>
-                <li class="menu-item"><span class="menu-item-logo trending"></span><a id="trending" href="">Trending</a></li>
-                <li class="menu-item"><span class="menu-item-logo likey"></span><a id="likey"  href="">Likey</a></li>
-            </ul>
-        </section>
-        <section class="anime-section">
-            <h2 class="anime-title">
-                <strong><span class="menu-item-logo trending"></span>Trending</strong>
-            </h2>
-            <div id="app" class="anime-container">
-            </div>
-        </section>      
+
+        <section class="menu-content__wrapper">
+            <section class="menu" id="Menu">
+                <ul class="menu-container">
+                    <li class="menu-item"><span class="menu-item-logo home"></span><a id="home"  href="">Home</a></li>
+                    <li class="menu-item"><span class="menu-item-logo trending"></span><a id="trending" href="">Trending</a></li>
+                    <li class="menu-item"><span class="menu-item-logo likey"></span><a id="likey"  href="">Likey</a></li>
+                </ul>
+            </section>
+            <section class="anime-section">
+                <h2 class="anime-title" >
+                    <strong><span class="menu-item-logo trending" id="title-icon"></span><span id="anime__title">Trending</span></strong>
+                </h2>
+                <div id="app" class="anime-container">
+                </div>
+            </section>   
+        </section>   
     </main>
     
     <script type="module" src="./src/components/header.js"></script>

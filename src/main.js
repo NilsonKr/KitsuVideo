@@ -10,6 +10,8 @@ const average = 'https://kitsu.io/api/edge//anime?page[limit]=10&sort=-average_r
 
 //<--------------->
 
+// const iconTitle = document.querySelector('#title-icon')
+const animeTitle = document.querySelector('#anime__title')
 const burguerButton = document.querySelector('#burguer')
 const menu = document.querySelector('#Menu')
 
@@ -22,12 +24,15 @@ document.body.addEventListener('click', ev => {
         menu.classList.toggle('menuActive')
     }
     if(target.id === 'home'){
+        animeTitle.innerText = 'Home'
         fetchData(home).then(data => renderData(data))
     }
     if(target.id === 'trending'){
+        animeTitle.innerText = 'Trending'
         fetchData(trending).then(data => renderData(data))
     }
     if(target.id === 'likey'){
+        animeTitle.innerText = 'Likey'
         fetchData(average).then(data => renderData(data))
     }
 

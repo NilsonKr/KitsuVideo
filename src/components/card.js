@@ -91,6 +91,13 @@ class Card extends HTMLElement{
                 .episodes{
                     font-size: 2rem;
                 }
+                @media screen and (min-width: 1024px){
+                    .card-container{
+                        min-height: 250px;
+                        max-height: 300px;
+                        max-width: 230px;
+                    }
+                }
             </style>
         `
     }

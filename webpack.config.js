@@ -2,13 +2,16 @@ const path = require('path');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const dotEnv = require('dotenv-webpack');
 
 module.exports = {
 	entry: path.resolve(__dirname, 'src', 'main.js'),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'js/[name].bundle.js',
+		filename: 'js/[name].bundle[hash].js',
 	},
 	resolve: {
 		extensions: ['.js'],
@@ -36,5 +39,10 @@ module.exports = {
 		}),
 		new BundleAnalyzerPlugin(),
 		new dotEnv(),
+		new CleanWebpackPlugin(),
 	],
+	optimization: {
+		minimize: true,
+		minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+	},
 };

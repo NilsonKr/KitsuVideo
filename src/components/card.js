@@ -1,20 +1,20 @@
-class Card extends HTMLElement{
-    constructor(){
-        super();
+class Card extends HTMLElement {
+	constructor() {
+		super();
 
-        this.attachShadow( { mode: "open" } )
-    }
-    static get observedAttributes(){
-        return ['img', 'title', 'date', 'episodes']
-    }
-    attributeChangedCallback(attr,oldVal,newVal){
-        if(oldVal !== newVal){
-            this[attr] = newVal
-        }
-    }
-    getTemplate(){
-        const template = document.createElement('template')
-        template.innerHTML = ` 
+		this.attachShadow({mode: 'open'});
+	}
+	static get observedAttributes() {
+		return ['img', 'title', 'date', 'episodes'];
+	}
+	attributeChangedCallback(attr, oldVal, newVal) {
+		if (oldVal !== newVal) {
+			this[attr] = newVal;
+		}
+	}
+	getTemplate() {
+		const template = document.createElement('template');
+		template.innerHTML = ` 
         <div class="card-container">
             <img src=${this.img} alt="${this.title} image">
             <div class="card-details">
@@ -27,12 +27,12 @@ class Card extends HTMLElement{
             </div>
         </div>
         ${this.getStyle()}
-        `
+        `;
 
-        return template
-    }
-    getStyle(){
-        return `
+		return template;
+	}
+	getStyle() {
+		return `
             <style>
                 *{
                     box-sizing: border-box;
@@ -40,6 +40,7 @@ class Card extends HTMLElement{
                     padding: 0;
                 }
                 :host{
+                    cursor:pointer;
                     display: block;
                 }
                 .card-container{
@@ -99,16 +100,16 @@ class Card extends HTMLElement{
                     }
                 }
             </style>
-        `
-    }
-    render(){
-        this.shadowRoot.append(this.getTemplate().content.cloneNode(true))
-    }
-    connectedCallback(){
-        this.render()
-    }
+        `;
+	}
+	render() {
+		this.shadowRoot.append(this.getTemplate().content.cloneNode(true));
+	}
+	connectedCallback() {
+		this.render();
+	}
 }
 
-if(!window.customElements.get('card-anime')){
-    customElements.define('card-anime', Card)
+if (!window.customElements.get('card-anime')) {
+	customElements.define('card-anime', Card);
 }

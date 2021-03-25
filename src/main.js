@@ -8,8 +8,6 @@ const trending = process.env.TRENDS;
 const home = process.env.HOME;
 const average = process.env.AVERAGE;
 
-//<--------------->
-
 // const iconTitle = document.querySelector('#title-icon')
 const animeTitle = document.querySelector('#anime__title');
 const burguerButton = document.querySelector('#burguer');
@@ -33,6 +31,10 @@ document.body.addEventListener('click', ev => {
 	if (target.id === 'likey') {
 		animeTitle.innerText = 'Likey';
 		fetchData(average).then(data => renderData(data));
+	}
+
+	if (target.id === 'Card') {
+		console.log('Hey');
 	}
 });
 

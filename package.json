@@ -1,31 +1,30 @@
 {
-  "name": "components-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack -p",
-    "dev": "webpack-dev-server --open",
-    "start": "serve ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "7.12.16",
-    "@babel/plugin-transform-runtime": "7.12.15",
-    "@babel/preset-env": "7.12.16",
-    "babel-jest": "26.6.3",
-    "babel-loader": "8.2.2",
-    "copy-webpack-plugin": "6.2.1",
-    "html-webpack-plugin": "4.5.1",
-    "serve": "^11.3.2",
-    "webpack": "4.45.0",
-    "webpack-bundle-analyzer": "4.4.0",
-    "webpack-cli": "3.3.12",
-    "webpack-dev-server": "3.11.2"
-  },
-  "dependencies": {
-    "@babel/runtime": "7.12.13"
-  }
+	"name": "components-project",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack --config webpack.config.js",
+		"dev": "webpack serve --config webpack.config.dev.js ",
+		"start": "serve ."
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "7.12.16",
+		"@babel/plugin-transform-runtime": "7.12.15",
+		"@babel/preset-env": "7.12.16",
+		"babel-jest": "26.6.3",
+		"babel-loader": "8.2.2",
+		"copy-webpack-plugin": "^8.1.0",
+		"dotenv-webpack": "^7.0.2",
+		"html-webpack-plugin": "^5.3.1",
+		"serve": "^11.3.2",
+		"webpack": "^5.28.0",
+		"webpack-bundle-analyzer": "4.4.0",
+		"webpack-cli": "^4.5.0",
+		"webpack-dev-server": "^3.11.2"
+	},
+	"dependencies": {}
 }

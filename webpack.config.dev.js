@@ -1,5 +1,4 @@
 const path = require('path');
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const dotEnv = require('dotenv-webpack');
@@ -13,7 +12,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js'],
 	},
-	mode: 'production',
+	mode: 'development',
 	module: {
 		rules: [
 			{
@@ -34,7 +33,12 @@ module.exports = {
 				{from: './styles', to: 'styles/'},
 			],
 		}),
-		new BundleAnalyzerPlugin(),
 		new dotEnv(),
 	],
+	devServer: {
+		contentBase: path.join(__dirname, 'dist'),
+		compress: true,
+		historyApiFallback: true,
+		open: true,
+	},
 };

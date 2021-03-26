@@ -22,3 +22,6 @@
 .anime-container {
 	grid-template-columns: repeat(auto-fill, 240px);
 }
+.modal--video {
+	height: clamp(320px, 100%, 500px);
+}

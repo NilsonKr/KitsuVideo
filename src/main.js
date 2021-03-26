@@ -20,7 +20,6 @@ const menu = document.querySelector('#Menu');
 
 //Modal Nodes
 const modalNode = document.querySelector('#modalNode');
-const closeModal = document.querySelector('#closeModal');
 
 document.body.addEventListener('click', ev => {
 	const target = ev.target;
@@ -48,6 +47,10 @@ document.body.addEventListener('click', ev => {
 		import('./components/modal.js').then(modalRender => {
 			modalRender.default(urlId);
 		});
+	}
+
+	if (target.id === 'closeModal' || target.id === 'modalNode') {
+		modalNode.style.display = 'none';
 	}
 });
 

@@ -16,11 +16,12 @@ function mountVideo() {
 	//Create a video with a new Id
 	const newId = id + 1;
 	const newVideo = document.createElement('video');
-	newVideo.className = 'video-js vjs-theme-fantasy';
+	newVideo.className = 'video-js vjs-theme-fantasy modal--video';
 	newVideo.id = `videoModal${newId}`;
 	newVideo.controls = true;
 
 	mountNode.append(newVideo);
+	mountNode.style.display = 'flex';
 
 	//Return The New Id of our video
 	return newId;

@@ -18,6 +18,10 @@ const animeTitle = document.querySelector('#anime__title');
 const burguerButton = document.querySelector('#burguer');
 const menu = document.querySelector('#Menu');
 
+//Modal Nodes
+const modalNode = document.querySelector('#modalNode');
+const closeModal = document.querySelector('#closeModal');
+
 document.body.addEventListener('click', ev => {
 	const target = ev.target;
 	ev.preventDefault();
@@ -43,10 +47,10 @@ document.body.addEventListener('click', ev => {
 
 		import('./components/modal.js').then(modalRender => {
 			modalRender.default(urlId);
-			// console.log(modalRender.default);
 		});
-		console.log(urlId);
 	}
 });
 
 fetchData(trending).then(data => renderData(data));
+
+//To close The modal

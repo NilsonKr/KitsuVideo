@@ -12,7 +12,7 @@ const renderData = ({ data }) => {
 			: anime.attributes.episodeLength;
 
 		dataToRender.push(
-			`<card-anime data-url=${anime.attributes.youtubeVideoId} id="Card" img=${anime.attributes.posterImage.small} title="${title}" date=${anime.attributes.createdAt} episodes=${episodes}></card-anime>`
+			`<card-anime data-url=https://www.youtube.com/watch?v=${anime.attributes.youtubeVideoId} id="Card" img=${anime.attributes.posterImage.small} title="${title}" date=${anime.attributes.createdAt} episodes=${episodes}></card-anime>`
 		);
 	});
 

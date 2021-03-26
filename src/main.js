@@ -1,7 +1,12 @@
 import './components/header.js';
 import './components/card.js';
+
 import fetchData from './fetchData.js';
 import renderData from './renderData.js';
+
+//VideoJs Themes And styles
+import 'video.js/dist/video-js.min.css';
+import '@videojs/themes/dist/fantasy/index.css';
 
 // apis url
 const trending = process.env.TRENDS;
@@ -34,7 +39,13 @@ document.body.addEventListener('click', ev => {
 	}
 
 	if (target.id === 'Card') {
-		console.log('Hey');
+		const urlId = target.dataset.url;
+
+		import('./components/modal.js').then(modalRender => {
+			modalRender.default(urlId);
+			// console.log(modalRender.default);
+		});
+		console.log(urlId);
 	}
 });
 

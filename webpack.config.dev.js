@@ -20,6 +20,10 @@ module.exports = {
 				exclude: /node_modules/,
 				use: ['babel-loader'],
 			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
 		],
 	},
 	plugins: [
@@ -29,8 +33,8 @@ module.exports = {
 		}),
 		new CopyWebpackPlugin({
 			patterns: [
-				{from: './assets', to: 'assets/'},
-				{from: './styles', to: 'styles/'},
+				{ from: './assets', to: 'assets/' },
+				{ from: './styles', to: 'styles/' },
 			],
 		}),
 		new dotEnv(),
